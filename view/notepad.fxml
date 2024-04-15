@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#stageKeyReleased" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="az.developia.notepad.controller.NotepadController">
+   <children>
+      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="openMenuItem" mnemonicParsing="false" onAction="#openMenuItemClicked" text="Open" />
+              <MenuItem fx:id="saveMenuItem" mnemonicParsing="false" onAction="#saveMenuItemClicked" text="Save" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Font">
+               <items>
+                  <Menu mnemonicParsing="false" text="Font Size">
+                     <items>
+                        <MenuItem fx:id="fontSizeMenuItem" mnemonicParsing="false" text="12">
+                           <graphic>
+                              <Slider fx:id="fontSizeSlider" blockIncrement="1.0" max="72.0" onMouseDragged="#fontSizeSliderDragged" value="12.0" />
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                  </Menu>
+                  <Menu fx:id="fontFamilyMenu" mnemonicParsing="false" text="Font Family">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#fontFamilyClicked" text="Calibri" />
+                        <MenuItem mnemonicParsing="false" onAction="#fontFamilyClicked" text="Verdana" />
+                        <MenuItem mnemonicParsing="false" onAction="#fontFamilyClicked" text="Arial" />
+                        <MenuItem mnemonicParsing="false" onAction="#fontFamilyClicked" text="Times New Roman" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Font Color">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Pick a color">
+                           <graphic>
+                              <ColorPicker fx:id="fontColorPicker" onAction="#fontColorPickerPicked" />
+                           </graphic>
+                        </MenuItem>
+                     </items>
+                  </Menu>
+               </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Options">
+              <items>
+                <MenuItem fx:id="addFontMenuItem" mnemonicParsing="false" onAction="#addFontMenuItemClicked" text="Add font" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <Pane layoutX="-2.0" layoutY="25.0" prefHeight="378.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to right, #d3cce3, #e9e4f0);;">
+         <children>
+            <TextArea fx:id="contentTextArea" prefHeight="378.0" prefWidth="600.0" />
+         </children></Pane>
+   </children>
+</AnchorPane>
